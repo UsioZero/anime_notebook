@@ -1,0 +1,11 @@
+C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\anime-notebook.exe.config
+C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\anime-notebook.exe
+C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\anime-notebook.pdb
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.AssemblyReference.cache
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.SuggestedBindingRedirects.cache
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.Form1.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.Properties.Resources.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.GenerateResource.cache
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.CoreCompileInputs.cache
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.exe
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.pdb
