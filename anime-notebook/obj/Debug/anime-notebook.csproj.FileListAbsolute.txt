@@ -9,3 +9,4 @@ C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-noteboo
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.CoreCompileInputs.cache
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.exe
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.pdb
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.Form2.resources
