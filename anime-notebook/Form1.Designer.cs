@@ -131,9 +131,9 @@
             this.nameDataGridViewTextBoxColumn,
             this.placeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.studioBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(1069, 360);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(610, 124);
+            this.dataGridView1.Size = new System.Drawing.Size(350, 171);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -148,9 +148,9 @@
             this.experienceDataGridViewTextBoxColumn,
             this.studioidDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.producerBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(33, 209);
+            this.dataGridView2.Location = new System.Drawing.Point(114, 350);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(679, 122);
+            this.dataGridView2.Size = new System.Drawing.Size(732, 236);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridView3
@@ -169,9 +169,9 @@
             this.originDataGridViewTextBoxColumn,
             this.produceridDataGridViewTextBoxColumn1});
             this.dataGridView3.DataSource = this.animeBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(33, 437);
+            this.dataGridView3.Location = new System.Drawing.Point(12, 630);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(971, 116);
+            this.dataGridView3.Size = new System.Drawing.Size(1046, 204);
             this.dataGridView3.TabIndex = 2;
             // 
             // bindingNavigator1
@@ -193,7 +193,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(46, 143);
+            this.bindingNavigator1.Location = new System.Drawing.Point(1103, 534);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -309,7 +309,7 @@
             this.bindingNavigatorSeparator5,
             this.bindingNavigatorAddNewItem1,
             this.bindingNavigatorDeleteItem1});
-            this.bindingNavigator2.Location = new System.Drawing.Point(46, 347);
+            this.bindingNavigator2.Location = new System.Drawing.Point(130, 589);
             this.bindingNavigator2.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.bindingNavigator2.MoveLastItem = this.bindingNavigatorMoveLastItem1;
             this.bindingNavigator2.MoveNextItem = this.bindingNavigatorMoveNextItem1;
@@ -426,14 +426,14 @@
             this.bindingNavigatorSeparator8,
             this.bindingNavigatorAddNewItem2,
             this.bindingNavigatorDeleteItem2});
-            this.bindingNavigator3.Location = new System.Drawing.Point(46, 566);
+            this.bindingNavigator3.Location = new System.Drawing.Point(46, 837);
             this.bindingNavigator3.MoveFirstItem = this.bindingNavigatorMoveFirstItem2;
             this.bindingNavigator3.MoveLastItem = this.bindingNavigatorMoveLastItem2;
             this.bindingNavigator3.MoveNextItem = this.bindingNavigatorMoveNextItem2;
             this.bindingNavigator3.MovePreviousItem = this.bindingNavigatorMovePreviousItem2;
             this.bindingNavigator3.Name = "bindingNavigator3";
             this.bindingNavigator3.PositionItem = this.bindingNavigatorPositionItem2;
-            this.bindingNavigator3.Size = new System.Drawing.Size(286, 25);
+            this.bindingNavigator3.Size = new System.Drawing.Size(255, 25);
             this.bindingNavigator3.TabIndex = 5;
             this.bindingNavigator3.Text = "bindingNavigator3";
             // 
@@ -667,7 +667,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 699);
+            this.ClientSize = new System.Drawing.Size(1431, 863);
             this.Controls.Add(this.bindingNavigator3);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.bindingNavigator1);
