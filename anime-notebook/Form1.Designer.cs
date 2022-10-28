@@ -177,6 +177,7 @@
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.studioBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
@@ -292,6 +293,7 @@
             // bindingNavigator2
             // 
             this.bindingNavigator2.AddNewItem = this.bindingNavigatorAddNewItem1;
+            this.bindingNavigator2.BindingSource = this.producerBindingSource;
             this.bindingNavigator2.CountItem = this.bindingNavigatorCountItem1;
             this.bindingNavigator2.DeleteItem = this.bindingNavigatorDeleteItem1;
             this.bindingNavigator2.Dock = System.Windows.Forms.DockStyle.None;
@@ -408,6 +410,7 @@
             // bindingNavigator3
             // 
             this.bindingNavigator3.AddNewItem = this.bindingNavigatorAddNewItem2;
+            this.bindingNavigator3.BindingSource = this.animeBindingSource;
             this.bindingNavigator3.CountItem = this.bindingNavigatorCountItem2;
             this.bindingNavigator3.DeleteItem = this.bindingNavigatorDeleteItem2;
             this.bindingNavigator3.Dock = System.Windows.Forms.DockStyle.None;
@@ -430,7 +433,7 @@
             this.bindingNavigator3.MovePreviousItem = this.bindingNavigatorMovePreviousItem2;
             this.bindingNavigator3.Name = "bindingNavigator3";
             this.bindingNavigator3.PositionItem = this.bindingNavigatorPositionItem2;
-            this.bindingNavigator3.Size = new System.Drawing.Size(255, 25);
+            this.bindingNavigator3.Size = new System.Drawing.Size(286, 25);
             this.bindingNavigator3.TabIndex = 5;
             this.bindingNavigator3.Text = "bindingNavigator3";
             // 
