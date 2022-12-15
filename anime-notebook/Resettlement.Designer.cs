@@ -165,6 +165,7 @@
             this.tableAdapterManager.ReviewTableAdapter = null;
             this.tableAdapterManager.StudioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.User1TableAdapter = null;
             this.tableAdapterManager.UserTableAdapter = null;
             // 
             // animeTableAdapter
@@ -461,7 +462,7 @@
             this.Controls.Add(this.studio_idTextBox);
             this.Controls.Add(this.producerBindingNavigator);
             this.Name = "Resettlement";
-            this.Text = "Form2";
+            this.Text = "Resettlement";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();

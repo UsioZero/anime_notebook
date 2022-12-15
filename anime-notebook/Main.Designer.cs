@@ -56,10 +56,15 @@
             this.reviewerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.studioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animeToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeAnimePredictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -86,9 +91,8 @@
             this.reviewTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ReviewTableAdapter();
             this.reviewerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reviewerTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ReviewerTableAdapter();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.animeToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).BeginInit();
@@ -146,7 +150,8 @@
             this.fileToolStripMenuItem,
             this.databaseToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.editFormToolStripMenuItem});
+            this.editFormToolStripMenuItem,
+            this.predictionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(829, 24);
@@ -237,14 +242,14 @@
             // resettlemenToolStripMenuItem
             // 
             this.resettlemenToolStripMenuItem.Name = "resettlemenToolStripMenuItem";
-            this.resettlemenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resettlemenToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.resettlemenToolStripMenuItem.Text = "Resettlemen";
             this.resettlemenToolStripMenuItem.Click += new System.EventHandler(this.resettlemenToolStripMenuItem_Click);
             // 
             // queryEditToolStripMenuItem
             // 
             this.queryEditToolStripMenuItem.Name = "queryEditToolStripMenuItem";
-            this.queryEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.queryEditToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.queryEditToolStripMenuItem.Text = "QueryEdit";
             this.queryEditToolStripMenuItem.Click += new System.EventHandler(this.queryEditToolStripMenuItem_Click);
             // 
@@ -256,7 +261,7 @@
             this.studioToolStripMenuItem,
             this.animeToolStripMenuItem2});
             this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
-            this.requestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requestToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.requestToolStripMenuItem.Text = "Request";
             // 
             // animeToolStripMenuItem1
@@ -286,6 +291,29 @@
             this.animeToolStripMenuItem2.Size = new System.Drawing.Size(121, 22);
             this.animeToolStripMenuItem2.Text = "Anime";
             this.animeToolStripMenuItem2.Click += new System.EventHandler(this.animeToolStripMenuItem2_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.animeToolStripMenuItem3,
+            this.paymantHistoryToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // animeToolStripMenuItem3
+            // 
+            this.animeToolStripMenuItem3.Name = "animeToolStripMenuItem3";
+            this.animeToolStripMenuItem3.Size = new System.Drawing.Size(160, 22);
+            this.animeToolStripMenuItem3.Text = "Anime";
+            this.animeToolStripMenuItem3.Click += new System.EventHandler(this.animeToolStripMenuItem3_Click);
+            // 
+            // paymantHistoryToolStripMenuItem
+            // 
+            this.paymantHistoryToolStripMenuItem.Name = "paymantHistoryToolStripMenuItem";
+            this.paymantHistoryToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.paymantHistoryToolStripMenuItem.Text = "Payment history";
+            this.paymantHistoryToolStripMenuItem.Click += new System.EventHandler(this.paymantHistoryToolStripMenuItem_Click);
             // 
             // editFormToolStripMenuItem
             // 
@@ -317,6 +345,21 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // predictionToolStripMenuItem
+            // 
+            this.predictionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeAnimePredictionToolStripMenuItem});
+            this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Text = "Prediction";
+            // 
+            // makeAnimePredictionToolStripMenuItem
+            // 
+            this.makeAnimePredictionToolStripMenuItem.Name = "makeAnimePredictionToolStripMenuItem";
+            this.makeAnimePredictionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.makeAnimePredictionToolStripMenuItem.Text = "Make anime prediction";
+            this.makeAnimePredictionToolStripMenuItem.Click += new System.EventHandler(this.makeAnimePredictionToolStripMenuItem_Click);
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -534,41 +577,36 @@
             // 
             this.reviewerTableAdapter.ClearBeforeFill = true;
             // 
-            // reportToolStripMenuItem
+            // comboBox1
             // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.animeToolStripMenuItem3,
-            this.paymantHistoryToolStripMenuItem});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reportToolStripMenuItem.Text = "Report";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(517, 78);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 8;
             // 
-            // animeToolStripMenuItem3
+            // textBox1
             // 
-            this.animeToolStripMenuItem3.Name = "animeToolStripMenuItem3";
-            this.animeToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.animeToolStripMenuItem3.Text = "Anime";
-            this.animeToolStripMenuItem3.Click += new System.EventHandler(this.animeToolStripMenuItem3_Click);
-            // 
-            // paymantHistoryToolStripMenuItem
-            // 
-            this.paymantHistoryToolStripMenuItem.Name = "paymantHistoryToolStripMenuItem";
-            this.paymantHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.paymantHistoryToolStripMenuItem.Text = "Paymant history";
-            this.paymantHistoryToolStripMenuItem.Click += new System.EventHandler(this.paymantHistoryToolStripMenuItem_Click);
+            this.textBox1.Location = new System.Drawing.Point(644, 79);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 578);
+            this.ClientSize = new System.Drawing.Size(829, 391);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Database";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -651,6 +689,10 @@
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem paymantHistoryToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeAnimePredictionToolStripMenuItem;
     }
 }
 

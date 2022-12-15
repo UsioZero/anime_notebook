@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.textBox_pass = new System.Windows.Forms.TextBox();
+            this.textBox_log = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox_login = new System.Windows.Forms.TextBox();
+            this.textBox_pass = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,29 +40,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label_Email = new System.Windows.Forms.Label();
+            this.pictureBox_Email = new System.Windows.Forms.PictureBox();
+            this.panel_Email = new System.Windows.Forms.Panel();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Email)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox_pass
+            // textBox_log
             // 
-            this.textBox_pass.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBox_pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_pass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_pass.Location = new System.Drawing.Point(413, 155);
-            this.textBox_pass.Name = "textBox_pass";
-            this.textBox_pass.Size = new System.Drawing.Size(232, 18);
-            this.textBox_pass.TabIndex = 0;
+            this.textBox_log.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.textBox_log.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_log.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_log.Location = new System.Drawing.Point(413, 121);
+            this.textBox_log.Name = "textBox_log";
+            this.textBox_log.Size = new System.Drawing.Size(232, 18);
+            this.textBox_log.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(377, 53);
+            this.label1.Location = new System.Drawing.Point(377, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 25);
+            this.label1.Size = new System.Drawing.Size(65, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Enter your login or email";
+            this.label1.Text = "Login";
             // 
             // button1
             // 
@@ -74,16 +81,17 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Log in";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox_login
+            // textBox_pass
             // 
-            this.textBox_login.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBox_login.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_login.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_login.Location = new System.Drawing.Point(413, 117);
-            this.textBox_login.Name = "textBox_login";
-            this.textBox_login.Size = new System.Drawing.Size(232, 18);
-            this.textBox_login.TabIndex = 3;
+            this.textBox_pass.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.textBox_pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_pass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_pass.Location = new System.Drawing.Point(413, 159);
+            this.textBox_pass.Name = "textBox_pass";
+            this.textBox_pass.Size = new System.Drawing.Size(232, 18);
+            this.textBox_pass.TabIndex = 3;
             // 
             // panel1
             // 
@@ -147,19 +155,74 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel1.Location = new System.Drawing.Point(103, 313);
+            this.linkLabel1.Location = new System.Drawing.Point(508, 505);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(113, 17);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Create an account";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(354, 516);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label_Email
+            // 
+            this.label_Email.AutoSize = true;
+            this.label_Email.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Email.Location = new System.Drawing.Point(651, 78);
+            this.label_Email.Name = "label_Email";
+            this.label_Email.Size = new System.Drawing.Size(36, 17);
+            this.label_Email.TabIndex = 15;
+            this.label_Email.Text = "clear";
+            this.label_Email.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // pictureBox_Email
+            // 
+            this.pictureBox_Email.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_Email.Image")));
+            this.pictureBox_Email.Location = new System.Drawing.Point(382, 75);
+            this.pictureBox_Email.Name = "pictureBox_Email";
+            this.pictureBox_Email.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox_Email.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_Email.TabIndex = 14;
+            this.pictureBox_Email.TabStop = false;
+            // 
+            // panel_Email
+            // 
+            this.panel_Email.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Email.Location = new System.Drawing.Point(382, 106);
+            this.panel_Email.Name = "panel_Email";
+            this.panel_Email.Size = new System.Drawing.Size(305, 1);
+            this.panel_Email.TabIndex = 13;
+            // 
+            // textBox_Email
+            // 
+            this.textBox_Email.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.textBox_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Email.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Email.Location = new System.Drawing.Point(413, 86);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(232, 18);
+            this.textBox_Email.TabIndex = 12;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(699, 411);
+            this.ClientSize = new System.Drawing.Size(699, 531);
+            this.Controls.Add(this.label_Email);
+            this.Controls.Add(this.pictureBox_Email);
+            this.Controls.Add(this.panel_Email);
+            this.Controls.Add(this.textBox_Email);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -167,14 +230,17 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox_login);
+            this.Controls.Add(this.textBox_pass);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox_pass);
+            this.Controls.Add(this.textBox_log);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Email)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,10 +248,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox_pass;
+        private System.Windows.Forms.TextBox textBox_log;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox_login;
+        private System.Windows.Forms.TextBox textBox_pass;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -193,5 +259,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label_Email;
+        private System.Windows.Forms.PictureBox pictureBox_Email;
+        private System.Windows.Forms.Panel panel_Email;
+        private System.Windows.Forms.TextBox textBox_Email;
     }
 }

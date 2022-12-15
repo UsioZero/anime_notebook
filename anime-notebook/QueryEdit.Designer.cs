@@ -94,7 +94,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TestInput);
             this.Name = "QueryEdit";
-            this.Text = "QueryEdit";
+            this.Text = "Select Report";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

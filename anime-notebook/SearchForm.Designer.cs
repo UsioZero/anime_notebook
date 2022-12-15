@@ -277,6 +277,11 @@
             // numericUpDown_Series_to
             // 
             this.numericUpDown_Series_to.Location = new System.Drawing.Point(289, 67);
+            this.numericUpDown_Series_to.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown_Series_to.Name = "numericUpDown_Series_to";
             this.numericUpDown_Series_to.Size = new System.Drawing.Size(61, 20);
             this.numericUpDown_Series_to.TabIndex = 41;
@@ -393,7 +398,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SearchForm";
-            this.Text = "SearchForm";
+            this.Text = "Search";
             this.Load += new System.EventHandler(this.SearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();

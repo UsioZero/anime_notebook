@@ -49,17 +49,22 @@
             this.button_Ok = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.comboBox_Producer = new System.Windows.Forms.ComboBox();
+            this.producerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.anime_notebook_dbDataSet = new anime_notebook.anime_notebook_dbDataSet();
-            this.producerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.producerTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ProducerTableAdapter();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.animeTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.AnimeTableAdapter();
+            this.comboBox_studio = new System.Windows.Forms.ComboBox();
+            this.studioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.studioTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.StudioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Series)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -198,6 +203,11 @@
             // numericUpDown_Series
             // 
             this.numericUpDown_Series.Location = new System.Drawing.Point(152, 69);
+            this.numericUpDown_Series.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDown_Series.Name = "numericUpDown_Series";
             this.numericUpDown_Series.Size = new System.Drawing.Size(200, 20);
             this.numericUpDown_Series.TabIndex = 15;
@@ -211,7 +221,7 @@
             // 
             // button_Ok
             // 
-            this.button_Ok.Location = new System.Drawing.Point(16, 278);
+            this.button_Ok.Location = new System.Drawing.Point(16, 327);
             this.button_Ok.Name = "button_Ok";
             this.button_Ok.Size = new System.Drawing.Size(336, 23);
             this.button_Ok.TabIndex = 18;
@@ -221,7 +231,7 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(438, 278);
+            this.button_Cancel.Location = new System.Drawing.Point(438, 327);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(336, 23);
             this.button_Cancel.TabIndex = 19;
@@ -240,6 +250,11 @@
             this.comboBox_Producer.TabIndex = 20;
             this.comboBox_Producer.ValueMember = "producer_id";
             // 
+            // producerBindingSource
+            // 
+            this.producerBindingSource.DataMember = "Producer";
+            this.producerBindingSource.DataSource = this.bindingSource1;
+            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = this.anime_notebook_dbDataSet;
@@ -249,11 +264,6 @@
             // 
             this.anime_notebook_dbDataSet.DataSetName = "anime_notebook_dbDataSet";
             this.anime_notebook_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // producerBindingSource
-            // 
-            this.producerBindingSource.DataMember = "Producer";
-            this.producerBindingSource.DataSource = this.bindingSource1;
             // 
             // producerTableAdapter
             // 
@@ -268,11 +278,43 @@
             // 
             this.animeTableAdapter.ClearBeforeFill = true;
             // 
+            // comboBox_studio
+            // 
+            this.comboBox_studio.DataSource = this.studioBindingSource;
+            this.comboBox_studio.DisplayMember = "studio_id";
+            this.comboBox_studio.FormattingEnabled = true;
+            this.comboBox_studio.Location = new System.Drawing.Point(152, 246);
+            this.comboBox_studio.Name = "comboBox_studio";
+            this.comboBox_studio.Size = new System.Drawing.Size(200, 21);
+            this.comboBox_studio.TabIndex = 22;
+            this.comboBox_studio.ValueMember = "producer_id";
+            // 
+            // studioBindingSource
+            // 
+            this.studioBindingSource.DataMember = "Studio";
+            this.studioBindingSource.DataSource = this.bindingSource1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(12, 246);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Studio";
+            // 
+            // studioTableAdapter
+            // 
+            this.studioTableAdapter.ClearBeforeFill = true;
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 313);
+            this.ClientSize = new System.Drawing.Size(800, 362);
+            this.Controls.Add(this.comboBox_studio);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox_Producer);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Ok);
@@ -294,12 +336,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditForm";
-            this.Text = "EditForm";
+            this.Text = "Add Or Erdit";
+            this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Series)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +377,9 @@
         private anime_notebook_dbDataSetTableAdapters.ProducerTableAdapter producerTableAdapter;
         private System.Windows.Forms.BindingSource bindingSource2;
         private anime_notebook_dbDataSetTableAdapters.AnimeTableAdapter animeTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox_studio;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.BindingSource studioBindingSource;
+        private anime_notebook_dbDataSetTableAdapters.StudioTableAdapter studioTableAdapter;
     }
 }
