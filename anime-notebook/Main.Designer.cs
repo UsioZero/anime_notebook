@@ -1,6 +1,6 @@
 ﻿namespace anime_notebook
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.anime_notebook_dbDataSet = new anime_notebook.anime_notebook_dbDataSet();
             this.studioBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -40,10 +40,26 @@
             this.animeTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.AnimeTableAdapter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.producerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.producerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reviewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resettlemenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queryEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reviewerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.studioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -64,9 +80,15 @@
             this.produceridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resettlemenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.releaseTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ReleaseTableAdapter();
+            this.reviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reviewTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ReviewTableAdapter();
+            this.reviewerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reviewerTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ReviewerTableAdapter();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animeToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).BeginInit();
@@ -76,6 +98,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reviewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reviewerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSource1
@@ -120,7 +145,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.databaseToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.editFormToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(829, 24);
@@ -135,36 +161,162 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stToolStripMenuItem,
+            this.animeToolStripMenuItem,
             this.producerToolStripMenuItem,
-            this.animeToolStripMenuItem});
+            this.releaseToolStripMenuItem,
+            this.reviewToolStripMenuItem,
+            this.reviewerToolStripMenuItem,
+            this.stToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
             this.databaseToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
-            // producerToolStripMenuItem
-            // 
-            this.producerToolStripMenuItem.Name = "producerToolStripMenuItem";
-            this.producerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.producerToolStripMenuItem.Text = "Producer";
-            this.producerToolStripMenuItem.Click += new System.EventHandler(this.producerToolStripMenuItem_Click);
-            // 
             // animeToolStripMenuItem
             // 
             this.animeToolStripMenuItem.Name = "animeToolStripMenuItem";
-            this.animeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.animeToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.animeToolStripMenuItem.Text = "Anime";
             this.animeToolStripMenuItem.Click += new System.EventHandler(this.animeToolStripMenuItem_Click);
+            // 
+            // producerToolStripMenuItem
+            // 
+            this.producerToolStripMenuItem.Name = "producerToolStripMenuItem";
+            this.producerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.producerToolStripMenuItem.Text = "Producer";
+            this.producerToolStripMenuItem.Click += new System.EventHandler(this.producerToolStripMenuItem_Click);
+            // 
+            // releaseToolStripMenuItem
+            // 
+            this.releaseToolStripMenuItem.Name = "releaseToolStripMenuItem";
+            this.releaseToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.releaseToolStripMenuItem.Text = "Release";
+            this.releaseToolStripMenuItem.Click += new System.EventHandler(this.releaseToolStripMenuItem_Click);
+            // 
+            // reviewToolStripMenuItem
+            // 
+            this.reviewToolStripMenuItem.Name = "reviewToolStripMenuItem";
+            this.reviewToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.reviewToolStripMenuItem.Text = "Review";
+            this.reviewToolStripMenuItem.Click += new System.EventHandler(this.reviewToolStripMenuItem_Click);
+            // 
+            // reviewerToolStripMenuItem
+            // 
+            this.reviewerToolStripMenuItem.Name = "reviewerToolStripMenuItem";
+            this.reviewerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.reviewerToolStripMenuItem.Text = "Reviewer";
+            this.reviewerToolStripMenuItem.Click += new System.EventHandler(this.reviewerToolStripMenuItem_Click);
             // 
             // stToolStripMenuItem
             // 
             this.stToolStripMenuItem.Name = "stToolStripMenuItem";
-            this.stToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.stToolStripMenuItem.Text = "Studio";
             this.stToolStripMenuItem.Click += new System.EventHandler(this.stToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resettlemenToolStripMenuItem,
+            this.queryEditToolStripMenuItem,
+            this.requestToolStripMenuItem,
+            this.reportToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // resettlemenToolStripMenuItem
+            // 
+            this.resettlemenToolStripMenuItem.Name = "resettlemenToolStripMenuItem";
+            this.resettlemenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resettlemenToolStripMenuItem.Text = "Resettlemen";
+            this.resettlemenToolStripMenuItem.Click += new System.EventHandler(this.resettlemenToolStripMenuItem_Click);
+            // 
+            // queryEditToolStripMenuItem
+            // 
+            this.queryEditToolStripMenuItem.Name = "queryEditToolStripMenuItem";
+            this.queryEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.queryEditToolStripMenuItem.Text = "QueryEdit";
+            this.queryEditToolStripMenuItem.Click += new System.EventHandler(this.queryEditToolStripMenuItem_Click);
+            // 
+            // requestToolStripMenuItem
+            // 
+            this.requestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.animeToolStripMenuItem1,
+            this.reviewerToolStripMenuItem1,
+            this.studioToolStripMenuItem,
+            this.animeToolStripMenuItem2});
+            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
+            this.requestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requestToolStripMenuItem.Text = "Request";
+            // 
+            // animeToolStripMenuItem1
+            // 
+            this.animeToolStripMenuItem1.Name = "animeToolStripMenuItem1";
+            this.animeToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.animeToolStripMenuItem1.Text = "Release";
+            this.animeToolStripMenuItem1.Click += new System.EventHandler(this.releaseToolStripMenuItem1_Click);
+            // 
+            // reviewerToolStripMenuItem1
+            // 
+            this.reviewerToolStripMenuItem1.Name = "reviewerToolStripMenuItem1";
+            this.reviewerToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.reviewerToolStripMenuItem1.Text = "Reviewer";
+            this.reviewerToolStripMenuItem1.Click += new System.EventHandler(this.reviewerToolStripMenuItem1_Click);
+            // 
+            // studioToolStripMenuItem
+            // 
+            this.studioToolStripMenuItem.Name = "studioToolStripMenuItem";
+            this.studioToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.studioToolStripMenuItem.Text = "Studio";
+            this.studioToolStripMenuItem.Click += new System.EventHandler(this.studioToolStripMenuItem_Click);
+            // 
+            // animeToolStripMenuItem2
+            // 
+            this.animeToolStripMenuItem2.Name = "animeToolStripMenuItem2";
+            this.animeToolStripMenuItem2.Size = new System.Drawing.Size(121, 22);
+            this.animeToolStripMenuItem2.Text = "Anime";
+            this.animeToolStripMenuItem2.Click += new System.EventHandler(this.animeToolStripMenuItem2_Click);
+            // 
+            // editFormToolStripMenuItem
+            // 
+            this.editFormToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.editFormToolStripMenuItem.Name = "editFormToolStripMenuItem";
+            this.editFormToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.editFormToolStripMenuItem.Text = "EditForm";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -271,7 +423,7 @@
             this.bindingNavigatorSeparator5,
             this.bindingNavigatorAddNewItem1,
             this.bindingNavigatorDeleteItem1});
-            this.bindingNavigator2.Location = new System.Drawing.Point(46, 534);
+            this.bindingNavigator2.Location = new System.Drawing.Point(12, 350);
             this.bindingNavigator2.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.bindingNavigator2.MoveLastItem = this.bindingNavigatorMoveLastItem1;
             this.bindingNavigator2.MoveNextItem = this.bindingNavigatorMoveNextItem1;
@@ -288,40 +440,47 @@
             this.studioidDataGridViewTextBoxColumn1.DataPropertyName = "studio_id";
             this.studioidDataGridViewTextBoxColumn1.HeaderText = "studio_id";
             this.studioidDataGridViewTextBoxColumn1.Name = "studioidDataGridViewTextBoxColumn1";
+            this.studioidDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // experienceDataGridViewTextBoxColumn
             // 
             this.experienceDataGridViewTextBoxColumn.DataPropertyName = "experience";
             this.experienceDataGridViewTextBoxColumn.HeaderText = "experience";
             this.experienceDataGridViewTextBoxColumn.Name = "experienceDataGridViewTextBoxColumn";
+            this.experienceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // genderDataGridViewTextBoxColumn
             // 
             this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
             this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ageDataGridViewTextBoxColumn
             // 
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "age";
             this.ageDataGridViewTextBoxColumn.HeaderText = "age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // produceridDataGridViewTextBoxColumn
             // 
             this.produceridDataGridViewTextBoxColumn.DataPropertyName = "producer_id";
             this.produceridDataGridViewTextBoxColumn.HeaderText = "producer_id";
             this.produceridDataGridViewTextBoxColumn.Name = "produceridDataGridViewTextBoxColumn";
+            this.produceridDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.produceridDataGridViewTextBoxColumn,
@@ -331,43 +490,74 @@
             this.experienceDataGridViewTextBoxColumn,
             this.studioidDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.producerBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(46, 295);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 111);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(732, 236);
             this.dataGridView2.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 276);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(112, 29);
             this.label1.TabIndex = 7;
             this.label1.Text = "Producer";
             // 
-            // exitToolStripMenuItem
+            // releaseBindingSource
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.releaseBindingSource.DataMember = "Release";
+            this.releaseBindingSource.DataSource = this.bindingSource1;
             // 
-            // viewToolStripMenuItem
+            // releaseTableAdapter
             // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resettlemenToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
+            this.releaseTableAdapter.ClearBeforeFill = true;
             // 
-            // resettlemenToolStripMenuItem
+            // reviewBindingSource
             // 
-            this.resettlemenToolStripMenuItem.Name = "resettlemenToolStripMenuItem";
-            this.resettlemenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.resettlemenToolStripMenuItem.Text = "Resettlemen";
-            this.resettlemenToolStripMenuItem.Click += new System.EventHandler(this.resettlemenToolStripMenuItem_Click);
+            this.reviewBindingSource.DataMember = "Review";
+            this.reviewBindingSource.DataSource = this.bindingSource1;
             // 
-            // Form1
+            // reviewTableAdapter
+            // 
+            this.reviewTableAdapter.ClearBeforeFill = true;
+            // 
+            // reviewerBindingSource
+            // 
+            this.reviewerBindingSource.DataMember = "Reviewer";
+            this.reviewerBindingSource.DataSource = this.bindingSource1;
+            // 
+            // reviewerTableAdapter
+            // 
+            this.reviewerTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.animeToolStripMenuItem3,
+            this.paymantHistoryToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // animeToolStripMenuItem3
+            // 
+            this.animeToolStripMenuItem3.Name = "animeToolStripMenuItem3";
+            this.animeToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.animeToolStripMenuItem3.Text = "Anime";
+            this.animeToolStripMenuItem3.Click += new System.EventHandler(this.animeToolStripMenuItem3_Click);
+            // 
+            // paymantHistoryToolStripMenuItem
+            // 
+            this.paymantHistoryToolStripMenuItem.Name = "paymantHistoryToolStripMenuItem";
+            this.paymantHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paymantHistoryToolStripMenuItem.Text = "Paymant history";
+            this.paymantHistoryToolStripMenuItem.Click += new System.EventHandler(this.paymantHistoryToolStripMenuItem_Click);
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -377,7 +567,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView2);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -392,6 +582,9 @@
             this.bindingNavigator2.ResumeLayout(false);
             this.bindingNavigator2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reviewerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,6 +629,28 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resettlemenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queryEditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editFormToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.BindingSource releaseBindingSource;
+        private anime_notebook_dbDataSetTableAdapters.ReleaseTableAdapter releaseTableAdapter;
+        private System.Windows.Forms.BindingSource reviewBindingSource;
+        private anime_notebook_dbDataSetTableAdapters.ReviewTableAdapter reviewTableAdapter;
+        private System.Windows.Forms.BindingSource reviewerBindingSource;
+        private anime_notebook_dbDataSetTableAdapters.ReviewerTableAdapter reviewerTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem releaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reviewerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reviewerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem studioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem paymantHistoryToolStripMenuItem;
     }
 }
 

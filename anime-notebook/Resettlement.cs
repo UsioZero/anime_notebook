@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace anime_notebook
 {
-    public partial class Form2 : Form
+    public partial class Resettlement : Form
     {
-        public Form2()
+        public Resettlement()
         {
             InitializeComponent();
         }

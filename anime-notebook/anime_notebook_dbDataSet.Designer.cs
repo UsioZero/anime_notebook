@@ -48,6 +48,8 @@ namespace anime_notebook {
         
         private global::System.Data.DataRelation relationFK_Review_reviewer;
         
+        private global::System.Data.DataRelation relationFK_Anime_Studio;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -353,6 +355,7 @@ namespace anime_notebook {
             this.relationFK_Release_Anime = this.Relations["FK_Release_Anime"];
             this.relationFK_Review_Release = this.Relations["FK_Review_Release"];
             this.relationFK_Review_reviewer = this.Relations["FK_Review_reviewer"];
+            this.relationFK_Anime_Studio = this.Relations["FK_Anime_Studio"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -397,6 +400,10 @@ namespace anime_notebook {
                         this.tableReviewer.reviewer_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableReview.reviewer_idColumn}, false);
             this.Relations.Add(this.relationFK_Review_reviewer);
+            this.relationFK_Anime_Studio = new global::System.Data.DataRelation("FK_Anime_Studio", new global::System.Data.DataColumn[] {
+                        this.tableStudio.studio_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAnime.studio_idColumn}, false);
+            this.Relations.Add(this.relationFK_Anime_Studio);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -544,6 +551,8 @@ namespace anime_notebook {
             
             private global::System.Data.DataColumn columnproducer_id;
             
+            private global::System.Data.DataColumn columnstudio_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AnimeDataTable() {
@@ -659,6 +668,14 @@ namespace anime_notebook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn studio_idColumn {
+                get {
+                    return this.columnstudio_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -694,7 +711,7 @@ namespace anime_notebook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AnimeRow AddAnimeRow(int anime_id, string name, string genre, int series, string annotation, string type, string announcement_date, string streaming_service, string origin, ProducerRow parentProducerRowByFK_Anime_Producer) {
+            public AnimeRow AddAnimeRow(int anime_id, string name, string genre, int series, string annotation, string type, string announcement_date, string streaming_service, string origin, ProducerRow parentProducerRowByFK_Anime_Producer, StudioRow parentStudioRowByFK_Anime_Studio) {
                 AnimeRow rowAnimeRow = ((AnimeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         anime_id,
@@ -706,9 +723,13 @@ namespace anime_notebook {
                         announcement_date,
                         streaming_service,
                         origin,
+                        null,
                         null};
                 if ((parentProducerRowByFK_Anime_Producer != null)) {
                     columnValuesArray[9] = parentProducerRowByFK_Anime_Producer[0];
+                }
+                if ((parentStudioRowByFK_Anime_Studio != null)) {
+                    columnValuesArray[10] = parentStudioRowByFK_Anime_Studio[0];
                 }
                 rowAnimeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAnimeRow);
@@ -749,6 +770,7 @@ namespace anime_notebook {
                 this.columnstreaming_service = base.Columns["streaming_service"];
                 this.columnorigin = base.Columns["origin"];
                 this.columnproducer_id = base.Columns["producer_id"];
+                this.columnstudio_id = base.Columns["studio_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -774,6 +796,8 @@ namespace anime_notebook {
                 base.Columns.Add(this.columnorigin);
                 this.columnproducer_id = new global::System.Data.DataColumn("producer_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproducer_id);
+                this.columnstudio_id = new global::System.Data.DataColumn("studio_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudio_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnanime_id}, true));
                 this.columnanime_id.AllowDBNull = false;
@@ -794,6 +818,7 @@ namespace anime_notebook {
                 this.columnorigin.AllowDBNull = false;
                 this.columnorigin.MaxLength = 50;
                 this.columnproducer_id.AllowDBNull = false;
+                this.columnstudio_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2511,6 +2536,8 @@ namespace anime_notebook {
             
             private global::System.Data.DataColumn columnsubscription_duration;
             
+            private global::System.Data.DataColumn columnsubscription_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public UserDataTable() {
@@ -2586,6 +2613,14 @@ namespace anime_notebook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn subscription_dateColumn {
+                get {
+                    return this.columnsubscription_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2621,14 +2656,15 @@ namespace anime_notebook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UserRow AddUserRow(int user_id, string login, string password, string props, string subscription_duration) {
+            public UserRow AddUserRow(int user_id, string login, string password, string props, string subscription_duration, System.DateTime subscription_date) {
                 UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         user_id,
                         login,
                         password,
                         props,
-                        subscription_duration};
+                        subscription_duration,
+                        subscription_date};
                 rowUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUserRow);
                 return rowUserRow;
@@ -2663,6 +2699,7 @@ namespace anime_notebook {
                 this.columnpassword = base.Columns["password"];
                 this.columnprops = base.Columns["props"];
                 this.columnsubscription_duration = base.Columns["subscription_duration"];
+                this.columnsubscription_date = base.Columns["subscription_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2678,6 +2715,8 @@ namespace anime_notebook {
                 base.Columns.Add(this.columnprops);
                 this.columnsubscription_duration = new global::System.Data.DataColumn("subscription_duration", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubscription_duration);
+                this.columnsubscription_date = new global::System.Data.DataColumn("subscription_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubscription_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnuser_id}, true));
                 this.columnuser_id.AllowDBNull = false;
@@ -2690,6 +2729,7 @@ namespace anime_notebook {
                 this.columnprops.MaxLength = 50;
                 this.columnsubscription_duration.AllowDBNull = false;
                 this.columnsubscription_duration.MaxLength = 50;
+                this.columnsubscription_date.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2942,12 +2982,34 @@ namespace anime_notebook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int studio_id {
+                get {
+                    return ((int)(this[this.tableAnime.studio_idColumn]));
+                }
+                set {
+                    this[this.tableAnime.studio_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProducerRow ProducerRow {
                 get {
                     return ((ProducerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Anime_Producer"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Anime_Producer"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StudioRow StudioRow {
+                get {
+                    return ((StudioRow)(this.GetParentRow(this.Table.ParentRelations["FK_Anime_Studio"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Anime_Studio"]);
                 }
             }
             
@@ -3479,6 +3541,17 @@ namespace anime_notebook {
                     return ((ProducerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Producer_Studio"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AnimeRow[] GetAnimeRows() {
+                if ((this.Table.ChildRelations["FK_Anime_Studio"] == null)) {
+                    return new AnimeRow[0];
+                }
+                else {
+                    return ((AnimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Anime_Studio"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3547,6 +3620,17 @@ namespace anime_notebook {
                 }
                 set {
                     this[this.tableUser.subscription_durationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime subscription_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableUser.subscription_dateColumn]));
+                }
+                set {
+                    this[this.tableUser.subscription_dateColumn] = value;
                 }
             }
         }
@@ -3924,59 +4008,63 @@ namespace anime_notebook.anime_notebook_dbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("streaming_service", "streaming_service");
             tableMapping.ColumnMappings.Add("origin", "origin");
             tableMapping.ColumnMappings.Add("producer_id", "producer_id");
+            tableMapping.ColumnMappings.Add("studio_id", "studio_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Anime] WHERE (([anime_id] = @Original_anime_id) AND ([name] = @Original_name) AND ([genre] = @Original_genre) AND ([series] = @Original_series) AND ([type] = @Original_type) AND ([announcement_date] = @Original_announcement_date) AND ([streaming_service] = @Original_streaming_service) AND ([origin] = @Original_origin) AND ([producer_id] = @Original_producer_id))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Anime] WHERE (([anime_id] = @Original_anime_id) AND ([name] = @Original_name) AND ([genre] = @Original_genre) AND ([series] = @Original_series) AND ([type] = @Original_type) AND ([announcement_date] = @Original_announcement_date) AND ([streaming_service] = @Original_streaming_service) AND ([origin] = @Original_origin) AND ([producer_id] = @Original_producer_id) AND ([studio_id] = @Original_studio_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anime_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_genre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_series", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_announcement_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_announcement_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streaming_service", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_origin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_producer_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_studio_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "studio_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Anime] ([anime_id], [name], [genre], [series], [annotation], [type], [announcement_date], [streaming_service], [origin], [producer_id]) VALUES (@anime_id, @name, @genre, @series, @annotation, @type, @announcement_date, @streaming_service, @origin, @producer_id);
-SELECT anime_id, name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id FROM Anime WHERE (anime_id = @anime_id)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Anime] ([name], [genre], [series], [annotation], [type], [announcement_date], [streaming_service], [origin], [producer_id], [studio_id]) VALUES (@name, @genre, @series, @annotation, @type, @announcement_date, @streaming_service, @origin, @producer_id, @studio_id);
+SELECT anime_id, name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id, studio_id FROM Anime WHERE (anime_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@series", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@annotation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "annotation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streaming_service", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@origin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producer_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studio_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "studio_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Anime] SET [anime_id] = @anime_id, [name] = @name, [genre] = @genre, [series] = @series, [annotation] = @annotation, [type] = @type, [announcement_date] = @announcement_date, [streaming_service] = @streaming_service, [origin] = @origin, [producer_id] = @producer_id WHERE (([anime_id] = @Original_anime_id) AND ([name] = @Original_name) AND ([genre] = @Original_genre) AND ([series] = @Original_series) AND ([type] = @Original_type) AND ([announcement_date] = @Original_announcement_date) AND ([streaming_service] = @Original_streaming_service) AND ([origin] = @Original_origin) AND ([producer_id] = @Original_producer_id));
-SELECT anime_id, name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id FROM Anime WHERE (anime_id = @anime_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Anime] SET [name] = @name, [genre] = @genre, [series] = @series, [annotation] = @annotation, [type] = @type, [announcement_date] = @announcement_date, [streaming_service] = @streaming_service, [origin] = @origin, [producer_id] = @producer_id, [studio_id] = @studio_id WHERE (([anime_id] = @Original_anime_id) AND ([name] = @Original_name) AND ([genre] = @Original_genre) AND ([series] = @Original_series) AND ([type] = @Original_type) AND ([announcement_date] = @Original_announcement_date) AND ([streaming_service] = @Original_streaming_service) AND ([origin] = @Original_origin) AND ([producer_id] = @Original_producer_id) AND ([studio_id] = @Original_studio_id));
+SELECT anime_id, name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id, studio_id FROM Anime WHERE (anime_id = @anime_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@series", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@annotation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "annotation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streaming_service", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@origin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producer_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studio_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "studio_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anime_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_genre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_series", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_announcement_date", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_announcement_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streaming_service", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_origin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_producer_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_studio_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "studio_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3989,12 +4077,51 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT anime_id, name, genre, series, annotation, type, announcement_date, stream" +
-                "ing_service, origin, producer_id FROM dbo.Anime";
+                "ing_service, origin, producer_id, studio_id FROM Anime";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM Anime WHERE [anime_id] = @anime_id";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT anime_id, name, genre, series, annotation, type, announcement_date, stream" +
+                "ing_service, origin, producer_id, studio_id FROM Anime WHERE (anime_id = @anime_" +
+                "id)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO Anime ([name], [genre], [series], [annotation], [type], [announcement_date], [streaming_service], [origin], [producer_id]) VALUES (@name, @genre, @series, @annotation, @type, CAST(@announcement_date as date), @streaming_service, @origin, @producer_id);";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genre", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@series", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@annotation", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "annotation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streaming_service", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@origin", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producer_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"UPDATE Anime SET [name] = @name, [genre] = @genre, [series] = @series, [annotation] = @annotation, [type] = @type, [announcement_date] = CAST (@announcement_date as date), [streaming_service] = @streaming_service, [origin] = @origin, [producer_id] = @producer_id WHERE (anime_id = @anime_id)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genre", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "genre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@series", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "series", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@annotation", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "annotation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@announcement_date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "announcement_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streaming_service", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "streaming_service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@origin", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "origin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@producer_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "producer_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anime_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "anime_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4016,6 +4143,32 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual anime_notebook_dbDataSet.AnimeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            anime_notebook_dbDataSet.AnimeDataTable dataTable = new anime_notebook_dbDataSet.AnimeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(anime_notebook_dbDataSet.AnimeDataTable dataTable, int anime_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(anime_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual anime_notebook_dbDataSet.AnimeDataTable GetDataBy2(int anime_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(anime_id));
             anime_notebook_dbDataSet.AnimeDataTable dataTable = new anime_notebook_dbDataSet.AnimeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -4054,7 +4207,7 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_anime_id, string Original_name, string Original_genre, int Original_series, string Original_type, string Original_announcement_date, string Original_streaming_service, string Original_origin, int Original_producer_id) {
+        public virtual int Delete(int Original_anime_id, string Original_name, string Original_genre, int Original_series, string Original_type, System.DateTime Original_announcement_date, string Original_streaming_service, string Original_origin, int Original_producer_id, int Original_studio_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_anime_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -4075,12 +4228,7 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_type));
             }
-            if ((Original_announcement_date == null)) {
-                throw new global::System.ArgumentNullException("Original_announcement_date");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_announcement_date));
-            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_announcement_date));
             if ((Original_streaming_service == null)) {
                 throw new global::System.ArgumentNullException("Original_streaming_service");
             }
@@ -4094,6 +4242,7 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_origin));
             }
             this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_producer_id));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_studio_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4114,52 +4263,47 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int anime_id, string name, string genre, int series, string annotation, string type, string announcement_date, string streaming_service, string origin, int producer_id) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(anime_id));
+        public virtual int Insert(string name, string genre, int series, string annotation, string type, System.DateTime announcement_date, string streaming_service, string origin, int producer_id, int studio_id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
             }
             if ((genre == null)) {
                 throw new global::System.ArgumentNullException("genre");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(genre));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(genre));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(series));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(series));
             if ((annotation == null)) {
                 throw new global::System.ArgumentNullException("annotation");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(annotation));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(annotation));
             }
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(type));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(type));
             }
-            if ((announcement_date == null)) {
-                throw new global::System.ArgumentNullException("announcement_date");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(announcement_date));
-            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(announcement_date));
             if ((streaming_service == null)) {
                 throw new global::System.ArgumentNullException("streaming_service");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(streaming_service));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(streaming_service));
             }
             if ((origin == null)) {
                 throw new global::System.ArgumentNullException("origin");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(origin));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(origin));
             }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(producer_id));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(producer_id));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(studio_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4181,70 +4325,67 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int anime_id, 
                     string name, 
                     string genre, 
                     int series, 
                     string annotation, 
                     string type, 
-                    string announcement_date, 
+                    System.DateTime announcement_date, 
                     string streaming_service, 
                     string origin, 
                     int producer_id, 
+                    int studio_id, 
                     int Original_anime_id, 
                     string Original_name, 
                     string Original_genre, 
                     int Original_series, 
                     string Original_type, 
-                    string Original_announcement_date, 
+                    System.DateTime Original_announcement_date, 
                     string Original_streaming_service, 
                     string Original_origin, 
-                    int Original_producer_id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(anime_id));
+                    int Original_producer_id, 
+                    int Original_studio_id, 
+                    int anime_id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
             if ((genre == null)) {
                 throw new global::System.ArgumentNullException("genre");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(genre));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(genre));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(series));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(series));
             if ((annotation == null)) {
                 throw new global::System.ArgumentNullException("annotation");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(annotation));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(annotation));
             }
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(type));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(type));
             }
-            if ((announcement_date == null)) {
-                throw new global::System.ArgumentNullException("announcement_date");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(announcement_date));
-            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(announcement_date));
             if ((streaming_service == null)) {
                 throw new global::System.ArgumentNullException("streaming_service");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(streaming_service));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(streaming_service));
             }
             if ((origin == null)) {
                 throw new global::System.ArgumentNullException("origin");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(origin));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(origin));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(producer_id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(producer_id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(studio_id));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_anime_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -4265,12 +4406,7 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_type));
             }
-            if ((Original_announcement_date == null)) {
-                throw new global::System.ArgumentNullException("Original_announcement_date");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_announcement_date));
-            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_announcement_date));
             if ((Original_streaming_service == null)) {
                 throw new global::System.ArgumentNullException("Original_streaming_service");
             }
@@ -4284,6 +4420,8 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_origin));
             }
             this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_producer_id));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_studio_id));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(anime_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4310,20 +4448,181 @@ SELECT anime_id, name, genre, series, annotation, type, announcement_date, strea
                     int series, 
                     string annotation, 
                     string type, 
-                    string announcement_date, 
+                    System.DateTime announcement_date, 
                     string streaming_service, 
                     string origin, 
                     int producer_id, 
+                    int studio_id, 
                     int Original_anime_id, 
                     string Original_name, 
                     string Original_genre, 
                     int Original_series, 
                     string Original_type, 
-                    string Original_announcement_date, 
+                    System.DateTime Original_announcement_date, 
                     string Original_streaming_service, 
                     string Original_origin, 
-                    int Original_producer_id) {
-            return this.Update(Original_anime_id, name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id, Original_anime_id, Original_name, Original_genre, Original_series, Original_type, Original_announcement_date, Original_streaming_service, Original_origin, Original_producer_id);
+                    int Original_producer_id, 
+                    int Original_studio_id) {
+            return this.Update(name, genre, series, annotation, type, announcement_date, streaming_service, origin, producer_id, studio_id, Original_anime_id, Original_name, Original_genre, Original_series, Original_type, Original_announcement_date, Original_streaming_service, Original_origin, Original_producer_id, Original_studio_id, Original_anime_id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int anime_id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(anime_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string name, string genre, int series, string annotation, string type, string announcement_date, string streaming_service, string origin, int producer_id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(name));
+            }
+            if ((genre == null)) {
+                throw new global::System.ArgumentNullException("genre");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(genre));
+            }
+            command.Parameters[2].Value = ((int)(series));
+            if ((annotation == null)) {
+                throw new global::System.ArgumentNullException("annotation");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(annotation));
+            }
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(type));
+            }
+            if ((announcement_date == null)) {
+                throw new global::System.ArgumentNullException("announcement_date");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(announcement_date));
+            }
+            if ((streaming_service == null)) {
+                throw new global::System.ArgumentNullException("streaming_service");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(streaming_service));
+            }
+            if ((origin == null)) {
+                throw new global::System.ArgumentNullException("origin");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(origin));
+            }
+            command.Parameters[8].Value = ((int)(producer_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(string name, string genre, int series, string annotation, string type, string announcement_date, string streaming_service, string origin, int producer_id, int anime_id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(name));
+            }
+            if ((genre == null)) {
+                throw new global::System.ArgumentNullException("genre");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(genre));
+            }
+            command.Parameters[2].Value = ((int)(series));
+            if ((annotation == null)) {
+                throw new global::System.ArgumentNullException("annotation");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(annotation));
+            }
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(type));
+            }
+            if ((announcement_date == null)) {
+                throw new global::System.ArgumentNullException("announcement_date");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(announcement_date));
+            }
+            if ((streaming_service == null)) {
+                throw new global::System.ArgumentNullException("streaming_service");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(streaming_service));
+            }
+            if ((origin == null)) {
+                throw new global::System.ArgumentNullException("origin");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(origin));
+            }
+            command.Parameters[8].Value = ((int)(producer_id));
+            command.Parameters[9].Value = ((int)(anime_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -6328,18 +6627,18 @@ SELECT studio_id, name, place FROM Studio WHERE (studio_id = @studio_id)";
             tableMapping.ColumnMappings.Add("password", "password");
             tableMapping.ColumnMappings.Add("props", "props");
             tableMapping.ColumnMappings.Add("subscription_duration", "subscription_duration");
+            tableMapping.ColumnMappings.Add("subscription_date", "subscription_date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[User] WHERE (([user_id] = @Original_user_id) AND ([login] = @O" +
-                "riginal_login) AND ([password] = @Original_password) AND ([props] = @Original_pr" +
-                "ops) AND ([subscription_duration] = @Original_subscription_duration))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [User] WHERE (([user_id] = @Original_user_id) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ([props] = @Original_props) AND ([subscription_duration] = @Original_subscription_duration) AND ([subscription_date] = @Original_subscription_date))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_props", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "props", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subscription_duration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_duration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subscription_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[User] ([user_id], [login], [password], [props], [subscription_duration]) VALUES (@user_id, @login, @password, @props, @subscription_duration);
@@ -6352,19 +6651,21 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subscription_duration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_duration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[User] SET [user_id] = @user_id, [login] = @login, [password] = @password, [props] = @props, [subscription_duration] = @subscription_duration WHERE (([user_id] = @Original_user_id) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ([props] = @Original_props) AND ([subscription_duration] = @Original_subscription_duration));
-SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE (user_id = @user_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [User] SET [login] = @login, [password] = @password, [props] = @props, [subscription_duration] = @subscription_duration, [subscription_date] = @subscription_date WHERE (([user_id] = @Original_user_id) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ([props] = @Original_props) AND ([subscription_duration] = @Original_subscription_duration) AND ([subscription_date] = @Original_subscription_date));
+SELECT user_id, login, password, props, subscription_duration, subscription_date FROM [User] WHERE (user_id = @user_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@props", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "props", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subscription_duration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_duration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subscription_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_props", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "props", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subscription_duration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_duration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subscription_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subscription_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6380,7 +6681,8 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT user_id, login, password, props, subscription_duration FROM dbo.[User]";
+            this._commandCollection[0].CommandText = "SELECT user_id, login, password, props, subscription_duration, subscription_date " +
+                "FROM [User]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6441,7 +6743,7 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration) {
+        public virtual int Delete(int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration, System.DateTime Original_subscription_date) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_user_id));
             if ((Original_login == null)) {
                 throw new global::System.ArgumentNullException("Original_login");
@@ -6467,6 +6769,7 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_subscription_duration));
             }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_subscription_date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6533,32 +6836,32 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int user_id, string login, string password, string props, string subscription_duration, int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(user_id));
+        public virtual int Update(string login, string password, string props, string subscription_duration, System.DateTime subscription_date, int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration, System.DateTime Original_subscription_date, int user_id) {
             if ((login == null)) {
                 throw new global::System.ArgumentNullException("login");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(login));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(login));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(password));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(password));
             }
             if ((props == null)) {
                 throw new global::System.ArgumentNullException("props");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(props));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(props));
             }
             if ((subscription_duration == null)) {
                 throw new global::System.ArgumentNullException("subscription_duration");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(subscription_duration));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(subscription_duration));
             }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(subscription_date));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_user_id));
             if ((Original_login == null)) {
                 throw new global::System.ArgumentNullException("Original_login");
@@ -6584,6 +6887,8 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_subscription_duration));
             }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_subscription_date));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(user_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6604,8 +6909,8 @@ SELECT user_id, login, password, props, subscription_duration FROM [User] WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string login, string password, string props, string subscription_duration, int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration) {
-            return this.Update(Original_user_id, login, password, props, subscription_duration, Original_user_id, Original_login, Original_password, Original_props, Original_subscription_duration);
+        public virtual int Update(string login, string password, string props, string subscription_duration, System.DateTime subscription_date, int Original_user_id, string Original_login, string Original_password, string Original_props, string Original_subscription_duration, System.DateTime Original_subscription_date) {
+            return this.Update(login, password, props, subscription_duration, subscription_date, Original_user_id, Original_login, Original_password, Original_props, Original_subscription_duration, Original_subscription_date, Original_user_id);
         }
     }
     

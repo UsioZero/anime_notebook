@@ -1,6 +1,6 @@
 ﻿namespace anime_notebook
 {
-    partial class Form2
+    partial class Resettlement
     {
         /// <summary>
         /// Required designer variable.
@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             System.Windows.Forms.Label producer_idLabel;
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label ageLabel;
             System.Windows.Forms.Label genderLabel;
             System.Windows.Forms.Label experienceLabel;
             System.Windows.Forms.Label studio_idLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resettlement));
             this.anime_notebook_dbDataSet = new anime_notebook.anime_notebook_dbDataSet();
             this.producerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.producerTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.ProducerTableAdapter();
             this.tableAdapterManager = new anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager();
+            this.animeTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.AnimeTableAdapter();
             this.producerBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.producerBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.producer_idTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@
             this.experienceTextBox = new System.Windows.Forms.TextBox();
             this.studio_idTextBox = new System.Windows.Forms.TextBox();
             this.animeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.animeTableAdapter = new anime_notebook.anime_notebook_dbDataSetTableAdapters.AnimeTableAdapter();
             this.animeDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +87,60 @@
             ((System.ComponentModel.ISupportInitialize)(this.animeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // producer_idLabel
+            // 
+            producer_idLabel.AutoSize = true;
+            producer_idLabel.Location = new System.Drawing.Point(84, 90);
+            producer_idLabel.Name = "producer_idLabel";
+            producer_idLabel.Size = new System.Drawing.Size(66, 13);
+            producer_idLabel.TabIndex = 1;
+            producer_idLabel.Text = "producer_id:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(84, 116);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(36, 13);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "name:";
+            // 
+            // ageLabel
+            // 
+            ageLabel.AutoSize = true;
+            ageLabel.Location = new System.Drawing.Point(84, 142);
+            ageLabel.Name = "ageLabel";
+            ageLabel.Size = new System.Drawing.Size(28, 13);
+            ageLabel.TabIndex = 5;
+            ageLabel.Text = "age:";
+            // 
+            // genderLabel
+            // 
+            genderLabel.AutoSize = true;
+            genderLabel.Location = new System.Drawing.Point(84, 168);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(43, 13);
+            genderLabel.TabIndex = 7;
+            genderLabel.Text = "gender:";
+            // 
+            // experienceLabel
+            // 
+            experienceLabel.AutoSize = true;
+            experienceLabel.Location = new System.Drawing.Point(84, 194);
+            experienceLabel.Name = "experienceLabel";
+            experienceLabel.Size = new System.Drawing.Size(62, 13);
+            experienceLabel.TabIndex = 9;
+            experienceLabel.Text = "experience:";
+            // 
+            // studio_idLabel
+            // 
+            studio_idLabel.AutoSize = true;
+            studio_idLabel.Location = new System.Drawing.Point(84, 220);
+            studio_idLabel.Name = "studio_idLabel";
+            studio_idLabel.Size = new System.Drawing.Size(52, 13);
+            studio_idLabel.TabIndex = 11;
+            studio_idLabel.Text = "studio_id:";
+            // 
             // anime_notebook_dbDataSet
             // 
             this.anime_notebook_dbDataSet.DataSetName = "anime_notebook_dbDataSet";
@@ -112,6 +166,10 @@
             this.tableAdapterManager.StudioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserTableAdapter = null;
+            // 
+            // animeTableAdapter
+            // 
+            this.animeTableAdapter.ClearBeforeFill = true;
             // 
             // producerBindingNavigator
             // 
@@ -143,6 +201,31 @@
             this.producerBindingNavigator.TabIndex = 0;
             this.producerBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -170,22 +253,16 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -193,7 +270,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -202,49 +279,22 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // producerBindingNavigatorSaveItem
             // 
             this.producerBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.producerBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("producerBindingNavigatorSaveItem.Image")));
             this.producerBindingNavigatorSaveItem.Name = "producerBindingNavigatorSaveItem";
-            this.producerBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.producerBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.producerBindingNavigatorSaveItem.Text = "Save Data";
             this.producerBindingNavigatorSaveItem.Click += new System.EventHandler(this.producerBindingNavigatorSaveItem_Click);
-            // 
-            // producer_idLabel
-            // 
-            producer_idLabel.AutoSize = true;
-            producer_idLabel.Location = new System.Drawing.Point(85, 90);
-            producer_idLabel.Name = "producer_idLabel";
-            producer_idLabel.Size = new System.Drawing.Size(63, 13);
-            producer_idLabel.TabIndex = 1;
-            producer_idLabel.Text = "producer id:";
             // 
             // producer_idTextBox
             // 
@@ -254,15 +304,6 @@
             this.producer_idTextBox.Size = new System.Drawing.Size(100, 20);
             this.producer_idTextBox.TabIndex = 2;
             // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(85, 116);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(36, 13);
-            nameLabel.TabIndex = 3;
-            nameLabel.Text = "name:";
-            // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.producerBindingSource, "name", true));
@@ -270,15 +311,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 4;
-            // 
-            // ageLabel
-            // 
-            ageLabel.AutoSize = true;
-            ageLabel.Location = new System.Drawing.Point(85, 142);
-            ageLabel.Name = "ageLabel";
-            ageLabel.Size = new System.Drawing.Size(28, 13);
-            ageLabel.TabIndex = 5;
-            ageLabel.Text = "age:";
             // 
             // ageTextBox
             // 
@@ -288,15 +320,6 @@
             this.ageTextBox.Size = new System.Drawing.Size(100, 20);
             this.ageTextBox.TabIndex = 6;
             // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(85, 168);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(43, 13);
-            genderLabel.TabIndex = 7;
-            genderLabel.Text = "gender:";
-            // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.producerBindingSource, "gender", true));
@@ -305,15 +328,6 @@
             this.genderTextBox.Size = new System.Drawing.Size(100, 20);
             this.genderTextBox.TabIndex = 8;
             // 
-            // experienceLabel
-            // 
-            experienceLabel.AutoSize = true;
-            experienceLabel.Location = new System.Drawing.Point(85, 194);
-            experienceLabel.Name = "experienceLabel";
-            experienceLabel.Size = new System.Drawing.Size(62, 13);
-            experienceLabel.TabIndex = 9;
-            experienceLabel.Text = "experience:";
-            // 
             // experienceTextBox
             // 
             this.experienceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.producerBindingSource, "experience", true));
@@ -321,15 +335,6 @@
             this.experienceTextBox.Name = "experienceTextBox";
             this.experienceTextBox.Size = new System.Drawing.Size(100, 20);
             this.experienceTextBox.TabIndex = 10;
-            // 
-            // studio_idLabel
-            // 
-            studio_idLabel.AutoSize = true;
-            studio_idLabel.Location = new System.Drawing.Point(85, 220);
-            studio_idLabel.Name = "studio_idLabel";
-            studio_idLabel.Size = new System.Drawing.Size(49, 13);
-            studio_idLabel.TabIndex = 11;
-            studio_idLabel.Text = "studio id:";
             // 
             // studio_idTextBox
             // 
@@ -343,10 +348,6 @@
             // 
             this.animeBindingSource.DataMember = "FK_Anime_Producer";
             this.animeBindingSource.DataSource = this.producerBindingSource;
-            // 
-            // animeTableAdapter
-            // 
-            this.animeTableAdapter.ClearBeforeFill = true;
             // 
             // animeDataGridView
             // 
@@ -431,7 +432,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(688, 220);
+            this.button1.Location = new System.Drawing.Point(871, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 23);
             this.button1.TabIndex = 14;
@@ -439,7 +440,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // Resettlement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -459,7 +460,7 @@
             this.Controls.Add(studio_idLabel);
             this.Controls.Add(this.studio_idTextBox);
             this.Controls.Add(this.producerBindingNavigator);
-            this.Name = "Form2";
+            this.Name = "Resettlement";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
