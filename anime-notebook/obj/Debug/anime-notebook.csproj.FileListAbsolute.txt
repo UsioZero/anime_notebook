@@ -20,3 +20,7 @@ C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\itextsharp.xm
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.CopyComplete
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.LoginForm.resources
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddProducer.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddRelease.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddReview.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddReviewer.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddStudio.resources

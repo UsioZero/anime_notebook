@@ -20,8 +20,7 @@ namespace anime_notebook
         }
 
         const string ConnectionString = @"Data Source=DESKTOP-VUJIJGT;Initial Catalog=anime_notebook_db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private bool edit = true;
-        private string login;
+        private readonly string login;
         private bool isPredict = false;
 
         private void bindingNavigator2_RefreshItems(object sender, EventArgs e)
@@ -158,7 +157,7 @@ namespace anime_notebook
             }
             if (label1.Text == "Release")
             {
-                var edt = new AddRelese();
+                var edt = new AddRelease();
                 edt.ShowDialog();
                 releaseTableAdapter.Fill(anime_notebook_dbDataSet.Release);
                 anime_notebook_dbDataSet.AcceptChanges();
@@ -193,10 +192,8 @@ namespace anime_notebook
             if (label1.Text == "Anime")
             {
                 var an = new anime_notebook_dbDataSet.AnimeDataTable();
-
                 animeTableAdapter.FillBy(an,
                 Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
-
                 object[] row = an.Rows[0].ItemArray;
 
                 var edt = new EditForm(
@@ -219,10 +216,8 @@ namespace anime_notebook
             if (label1.Text == "Producer")
             {
                 var an = new anime_notebook_dbDataSet.ProducerDataTable();
-
                 producerTableAdapter.FillBy(an,
                 Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
-
                 object[] row = an.Rows[0].ItemArray;
 
                 var edt = new AddProducer(
@@ -239,11 +234,18 @@ namespace anime_notebook
             }
             if (label1.Text == "Release")
             {
-                var edt = new AddRelese(
+                var an = new anime_notebook_dbDataSet.ReleaseDataTable();
+                releaseTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                object[] row = an.Rows[0].ItemArray;
 
+                var edt = new AddRelease(
+                    release_id: Convert.ToInt32(row[0].ToString()),
+                    date: Convert.ToDateTime(row[1]),
+                    views: Convert.ToInt32(row[2].ToString()),
+                    rating: Convert.ToDouble(row[3].ToString()),
+                    anime_id: Convert.ToInt32(row[4].ToString())
                     );
-
-
 
                 edt.ShowDialog();
                 releaseTableAdapter.Fill(anime_notebook_dbDataSet.Release);
@@ -251,11 +253,17 @@ namespace anime_notebook
             }
             if (label1.Text == "Review")
             {
+                var an = new anime_notebook_dbDataSet.ReviewDataTable();
+                reviewTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                object[] row = an.Rows[0].ItemArray;
+
                 var edt = new AddReview(
-
+                    review_id: Convert.ToInt32(row[0].ToString()),
+                    rating: Convert.ToDouble(row[1].ToString()),
+                    reviewer_id: Convert.ToInt32(row[2].ToString()),
+                    release_id: Convert.ToInt32(row[3].ToString())
                     );
-
-
 
                 edt.ShowDialog();
                 reviewTableAdapter.Fill(anime_notebook_dbDataSet.Review);
@@ -263,9 +271,18 @@ namespace anime_notebook
             }
             if (label1.Text == "Reviewer")
             {
-                var edt = new AddReviewer();
+                var an = new anime_notebook_dbDataSet.ReviewerDataTable();
+                reviewerTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                object[] row = an.Rows[0].ItemArray;
 
-
+                var edt = new AddReviewer(
+                    reviewer_id: Convert.ToInt32(row[0]),
+                    name: row[1].ToString(),
+                    gender: row[2].ToString(),
+                    birth_date: Convert.ToDateTime(row[3]),
+                    experience: Convert.ToInt32(row[4])
+                    );
 
                 edt.ShowDialog();
                 reviewerTableAdapter.Fill(anime_notebook_dbDataSet.Reviewer);
@@ -273,9 +290,16 @@ namespace anime_notebook
             }
             if (label1.Text == "Studio")
             {
-                var edt = new AddStudio();
+                var an = new anime_notebook_dbDataSet.StudioDataTable();
+                studioTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                object[] row = an.Rows[0].ItemArray;
 
-
+                var edt = new AddStudio(
+                    studio_id: Convert.ToInt32(row[0]),
+                    name: row[1].ToString(),
+                    place: row[2].ToString()
+                    );
 
                 edt.ShowDialog();
                 studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
@@ -285,13 +309,54 @@ namespace anime_notebook
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!edit) return;
+            if (label1.Text == "Anime")
+            {
+                animeTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
 
-            animeTableAdapter.DeleteQuery(
-            Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Producer")
+            {
+                producerTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
 
-            animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
-            anime_notebook_dbDataSet.AcceptChanges();
+                producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Release")
+            {
+                releaseTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+
+                releaseTableAdapter.Fill(anime_notebook_dbDataSet.Release);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Review")
+            {
+                reviewTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+
+                reviewTableAdapter.Fill(anime_notebook_dbDataSet.Review);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Reviewer")
+            {
+                reviewerTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+
+                reviewerTableAdapter.Fill(anime_notebook_dbDataSet.Reviewer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Studio")
+            {
+                studioTableAdapter.DeleteQuery(
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+
+                studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
 
         }
 
