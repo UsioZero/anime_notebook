@@ -166,7 +166,6 @@
             this.tableAdapterManager.StudioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.User1TableAdapter = null;
-            this.tableAdapterManager.UserTableAdapter = null;
             // 
             // animeTableAdapter
             // 

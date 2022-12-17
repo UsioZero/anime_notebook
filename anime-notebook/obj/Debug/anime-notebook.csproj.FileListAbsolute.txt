@@ -19,3 +19,4 @@ C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\itextsharp.dl
 C:\projects\anime_notebook\anime_notebook\anime-notebook\bin\Debug\itextsharp.xml
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime-notebook.csproj.CopyComplete
 C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.LoginForm.resources
+C:\projects\anime_notebook\anime_notebook\anime-notebook\obj\Debug\anime_notebook.AddProducer.resources

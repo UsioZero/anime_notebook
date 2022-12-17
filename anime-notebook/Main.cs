@@ -1,14 +1,8 @@
 ﻿using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using Application = System.Windows.Forms.Application;
@@ -148,43 +142,145 @@ namespace anime_notebook
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!edit) return;
-
-            var edt = new EditForm();
-
-            edt.ShowDialog();
-            animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
-            anime_notebook_dbDataSet.AcceptChanges();
-
+            if(label1.Text == "Anime")
+            {
+                var edt = new EditForm();
+                edt.ShowDialog();
+                animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Producer")
+            {
+                var edt = new AddProducer();
+                edt.ShowDialog();
+                producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Release")
+            {
+                var edt = new AddRelese();
+                edt.ShowDialog();
+                releaseTableAdapter.Fill(anime_notebook_dbDataSet.Release);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Review")
+            {
+                var edt = new AddReview();
+                edt.ShowDialog();
+                reviewTableAdapter.Fill(anime_notebook_dbDataSet.Review);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Reviewer")
+            {
+                var edt = new AddReviewer();
+                edt.ShowDialog();
+                reviewerTableAdapter.Fill(anime_notebook_dbDataSet.Reviewer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Studio")
+            {
+                var edt = new AddStudio();
+                edt.ShowDialog();
+                studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
         }
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!edit) return;
+ 
 
-            var an = new anime_notebook_dbDataSet.AnimeDataTable();
+            if (label1.Text == "Anime")
+            {
+                var an = new anime_notebook_dbDataSet.AnimeDataTable();
 
-            animeTableAdapter.FillBy(an,
-            Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                animeTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
 
-            object[] row = an.Rows[0].ItemArray;
+                object[] row = an.Rows[0].ItemArray;
 
-            var edt = new EditForm(
-            anime_id: Convert.ToInt32(row[0]),
-            name: row[1].ToString(),
-            genre: row[2].ToString(),
-            series: Convert.ToInt32(row[3].ToString()),
-            annotation: row[4].ToString(),
-            type: row[5].ToString(),
-            announcement_date: Convert.ToDateTime(row[6]),
-            streaming_service: row[7].ToString(),
-            origin: row[8].ToString(),
-            producer_id: Convert.ToInt32(row[9].ToString()),
-            studio_id: Convert.ToInt32(row[10].ToString()));
+                var edt = new EditForm(
+                anime_id: Convert.ToInt32(row[0]),
+                name: row[1].ToString(),
+                genre: row[2].ToString(),
+                series: Convert.ToInt32(row[3].ToString()),
+                annotation: row[4].ToString(),
+                type: row[5].ToString(),
+                announcement_date: Convert.ToDateTime(row[6]),
+                streaming_service: row[7].ToString(),
+                origin: row[8].ToString(),
+                producer_id: Convert.ToInt32(row[9].ToString()),
+                studio_id: Convert.ToInt32(row[10].ToString()));
 
-            edt.ShowDialog();
-            animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
-            anime_notebook_dbDataSet.AcceptChanges();
+                edt.ShowDialog();
+                animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Producer")
+            {
+                var an = new anime_notebook_dbDataSet.ProducerDataTable();
+
+                producerTableAdapter.FillBy(an,
+                Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+
+                object[] row = an.Rows[0].ItemArray;
+
+                var edt = new AddProducer(
+                    producer_id: Convert.ToInt32(row[0].ToString()),
+                    name: row[1].ToString(),
+                    age: Convert.ToInt32(row[2].ToString()),
+                    gender: row[3].ToString(),
+                    experience: Convert.ToInt32(row[4].ToString()),
+                    studio_id: Convert.ToInt32(row[5].ToString()));
+
+                edt.ShowDialog();
+                producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Release")
+            {
+                var edt = new AddRelese(
+
+                    );
+
+
+
+                edt.ShowDialog();
+                releaseTableAdapter.Fill(anime_notebook_dbDataSet.Release);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Review")
+            {
+                var edt = new AddReview(
+
+                    );
+
+
+
+                edt.ShowDialog();
+                reviewTableAdapter.Fill(anime_notebook_dbDataSet.Review);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Reviewer")
+            {
+                var edt = new AddReviewer();
+
+
+
+                edt.ShowDialog();
+                reviewerTableAdapter.Fill(anime_notebook_dbDataSet.Reviewer);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
+            if (label1.Text == "Studio")
+            {
+                var edt = new AddStudio();
+
+
+
+                edt.ShowDialog();
+                studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
+                anime_notebook_dbDataSet.AcceptChanges();
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -272,7 +368,8 @@ namespace anime_notebook
         private void paymantHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Document doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream($"../../reports/report_payment_history.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"../../reports/report_payment_history.pdf", FileMode.Create));
+            writer.PageEvent = new PDFFooter();
             doc.Open();
             Paragraph p1 = new Paragraph(str: "Your payment history!",
                 FontFactory.GetFont("Times New Roman", 28, BaseColor.BLACK));

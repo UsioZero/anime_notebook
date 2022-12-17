@@ -106,6 +106,11 @@
             // numericUpDown_Series_from
             // 
             this.numericUpDown_Series_from.Location = new System.Drawing.Point(193, 67);
+            this.numericUpDown_Series_from.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDown_Series_from.Name = "numericUpDown_Series_from";
             this.numericUpDown_Series_from.Size = new System.Drawing.Size(61, 20);
             this.numericUpDown_Series_from.TabIndex = 36;

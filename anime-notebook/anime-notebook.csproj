@@ -53,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProducer.Designer.cs">
+      <DependentUpon>AddProducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRelease.Designer.cs">
+      <DependentUpon>AddRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="anime_notebook_dbDataSet.cs">
       <DependentUpon>anime_notebook_dbDataSet.xsd</DependentUpon>
     </Compile>
@@ -61,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>anime_notebook_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PDFFooter.cs" />
     <Compile Include="EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +118,12 @@
     <Compile Include="SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddProducer.resx">
+      <DependentUpon>AddProducer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRelease.resx">
+      <DependentUpon>AddRelease.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>

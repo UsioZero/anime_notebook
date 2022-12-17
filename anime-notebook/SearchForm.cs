@@ -176,11 +176,14 @@ namespace anime_notebook
             dataGridView1.Height = 15 + (dataGridView1.Rows.Count + 2) * 20;
 
             Document doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream($"../../reports/report_anime.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"../../reports/report_anime.pdf", FileMode.Create));
+            writer.PageEvent = new PDFFooter();
             doc.Open();
+
             Paragraph p1 = new Paragraph(str: "Anime you have found!",
                 FontFactory.GetFont("Times New Roman", 28, BaseColor.BLACK));
             p1.Alignment = Element.ALIGN_CENTER;
+
             doc.Add(p1);
 
             DataSet dataSet = new DataSet();
