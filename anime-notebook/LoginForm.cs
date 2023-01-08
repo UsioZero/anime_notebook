@@ -31,6 +31,17 @@ namespace anime_notebook
             panel_Email.Hide();
             textBox_Email.Size = new Size(0,18);
             label_Email.Hide();
+
+            //Appereance place
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+
+            //exit button -border
+            button1.TabStop = false;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
         }
 
         private bool isValidEmail(string email)
@@ -226,8 +237,6 @@ namespace anime_notebook
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
                     Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
-
-
                 };
                 using (var message = new MailMessage(fromAddress, toAddress)
                 {

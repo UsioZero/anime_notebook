@@ -221,22 +221,24 @@
             // 
             // button_Ok
             // 
+            this.button_Ok.BackColor = System.Drawing.SystemColors.Highlight;
             this.button_Ok.Location = new System.Drawing.Point(16, 327);
             this.button_Ok.Name = "button_Ok";
             this.button_Ok.Size = new System.Drawing.Size(336, 23);
             this.button_Ok.TabIndex = 18;
             this.button_Ok.Text = "Ok";
-            this.button_Ok.UseVisualStyleBackColor = true;
+            this.button_Ok.UseVisualStyleBackColor = false;
             this.button_Ok.Click += new System.EventHandler(this.button_Ok_Click);
             // 
             // button_Cancel
             // 
+            this.button_Cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_Cancel.Location = new System.Drawing.Point(438, 327);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(336, 23);
             this.button_Cancel.TabIndex = 19;
             this.button_Cancel.Text = "Cancel";
-            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.UseVisualStyleBackColor = false;
             this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
             // comboBox_Producer
@@ -287,7 +289,7 @@
             this.comboBox_studio.Name = "comboBox_studio";
             this.comboBox_studio.Size = new System.Drawing.Size(200, 21);
             this.comboBox_studio.TabIndex = 22;
-            this.comboBox_studio.ValueMember = "producer_id";
+            this.comboBox_studio.ValueMember = "studio_id";
             // 
             // studioBindingSource
             // 
@@ -312,6 +314,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 362);
             this.Controls.Add(this.comboBox_studio);
             this.Controls.Add(this.label10);

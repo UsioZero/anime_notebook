@@ -173,10 +173,10 @@
             // 
             // producerBindingNavigator
             // 
-            this.producerBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.producerBindingNavigator.AddNewItem = null;
             this.producerBindingNavigator.BindingSource = this.producerBindingSource;
-            this.producerBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.producerBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.producerBindingNavigator.CountItem = this.bindingNavigatorMoveFirstItem;
+            this.producerBindingNavigator.DeleteItem = null;
             this.producerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -253,7 +253,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -352,6 +351,8 @@
             // animeDataGridView
             // 
             this.animeDataGridView.AutoGenerateColumns = false;
+            this.animeDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.animeDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.animeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.animeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -375,75 +376,87 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "anime_id";
             this.dataGridViewTextBoxColumn1.HeaderText = "anime_id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
             this.dataGridViewTextBoxColumn2.HeaderText = "name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "genre";
             this.dataGridViewTextBoxColumn3.HeaderText = "genre";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "series";
             this.dataGridViewTextBoxColumn4.HeaderText = "series";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "annotation";
             this.dataGridViewTextBoxColumn5.HeaderText = "annotation";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "type";
             this.dataGridViewTextBoxColumn6.HeaderText = "type";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "announcement_date";
             this.dataGridViewTextBoxColumn7.HeaderText = "announcement_date";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "streaming_service";
             this.dataGridViewTextBoxColumn8.HeaderText = "streaming_service";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "origin";
             this.dataGridViewTextBoxColumn9.HeaderText = "origin";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "producer_id";
             this.dataGridViewTextBoxColumn10.HeaderText = "producer_id";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Location = new System.Drawing.Point(871, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 23);
             this.button1.TabIndex = 14;
             this.button1.Text = "Підтвердити зміни";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Resettlement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1331, 603);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.animeDataGridView);
@@ -462,6 +475,7 @@
             this.Controls.Add(this.producerBindingNavigator);
             this.Name = "Resettlement";
             this.Text = "Resettlement";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();

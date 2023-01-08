@@ -55,5 +55,12 @@ namespace anime_notebook
             dataGridView1.DataSource = dt;
             dataGridView1.Height = 15 + (dataGridView1.Rows.Count + 2) * 20;
         }
+
+        private void RequestForm_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+        }
     }
 }

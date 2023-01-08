@@ -45,6 +45,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(12, 9);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(36, 13);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "name:";
+            // 
+            // placeLabel
+            // 
+            placeLabel.AutoSize = true;
+            placeLabel.Location = new System.Drawing.Point(12, 35);
+            placeLabel.Name = "placeLabel";
+            placeLabel.Size = new System.Drawing.Size(36, 13);
+            placeLabel.TabIndex = 5;
+            placeLabel.Text = "place:";
+            // 
             // anime_notebook_dbDataSet
             // 
             this.anime_notebook_dbDataSet.DataSetName = "anime_notebook_dbDataSet";
@@ -71,15 +89,6 @@
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.User1TableAdapter = null;
             // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(12, 9);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(36, 13);
-            nameLabel.TabIndex = 3;
-            nameLabel.Text = "name:";
-            // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studioBindingSource, "name", true));
@@ -87,15 +96,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(165, 20);
             this.nameTextBox.TabIndex = 4;
-            // 
-            // placeLabel
-            // 
-            placeLabel.AutoSize = true;
-            placeLabel.Location = new System.Drawing.Point(12, 35);
-            placeLabel.Name = "placeLabel";
-            placeLabel.Size = new System.Drawing.Size(36, 13);
-            placeLabel.TabIndex = 5;
-            placeLabel.Text = "place:";
             // 
             // placeTextBox
             // 
@@ -107,28 +107,31 @@
             // 
             // button_ok
             // 
+            this.button_ok.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_ok.Location = new System.Drawing.Point(12, 58);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 7;
             this.button_ok.Text = "Ok";
-            this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.UseVisualStyleBackColor = false;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
+            this.button_cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_cancel.Location = new System.Drawing.Point(157, 58);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 8;
             this.button_cancel.Text = "Cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // AddStudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(243, 95);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_ok);
@@ -137,7 +140,7 @@
             this.Controls.Add(placeLabel);
             this.Controls.Add(this.placeTextBox);
             this.Name = "AddStudio";
-            this.Text = "AddStudio";
+            this.Text = "Studio";
             this.Load += new System.EventHandler(this.AddStudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studioBindingSource)).EndInit();

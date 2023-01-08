@@ -139,22 +139,24 @@
             // 
             // button_ok
             // 
+            this.button_ok.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_ok.Location = new System.Drawing.Point(13, 123);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 11;
             this.button_ok.Text = "Ok";
-            this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.UseVisualStyleBackColor = false;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
+            this.button_cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_cancel.Location = new System.Drawing.Point(207, 123);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 12;
             this.button_cancel.Text = "Cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // dateTimePicker1
@@ -180,7 +182,7 @@
             this.Controls.Add(experienceLabel);
             this.Controls.Add(this.experienceTextBox);
             this.Name = "AddReviewer";
-            this.Text = "AddReviewer";
+            this.Text = "Reviewer";
             this.Load += new System.EventHandler(this.AddReviewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewerBindingSource)).EndInit();

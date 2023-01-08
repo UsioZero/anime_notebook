@@ -24,6 +24,7 @@ namespace anime_notebook
             InitializeComponent();
             //animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
             producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+            studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
             edit = false;
         }
 
@@ -33,6 +34,8 @@ namespace anime_notebook
         {
             // roomsTableAdapter.Fill(hostelDataSet.Rooms);
             producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+            studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
+
             edit = true;
             this.anime_id = anime_id;
             textBox_Name.Text = name;
@@ -87,8 +90,21 @@ namespace anime_notebook
         private void EditForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'anime_notebook_dbDataSet.Studio' table. You can move, or remove it, as needed.
-            this.studioTableAdapter.Fill(this.anime_notebook_dbDataSet.Studio);
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
 
+            //exit button -border
+            button_Ok.TabStop = false;
+            button_Ok.FlatStyle = FlatStyle.Flat;
+            button_Ok.FlatAppearance.BorderSize = 0;
+            button_Ok.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
+            //exit button -border
+            button_Cancel.TabStop = false;
+            button_Cancel.FlatStyle = FlatStyle.Flat;
+            button_Cancel.FlatAppearance.BorderSize = 0;
+            button_Cancel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
         }
     }
 }

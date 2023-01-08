@@ -51,6 +51,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.releaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // dateLabel
+            // 
+            dateLabel.AutoSize = true;
+            dateLabel.Location = new System.Drawing.Point(29, 20);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new System.Drawing.Size(31, 13);
+            dateLabel.TabIndex = 3;
+            dateLabel.Text = "date:";
+            // 
+            // viewsLabel
+            // 
+            viewsLabel.AutoSize = true;
+            viewsLabel.Location = new System.Drawing.Point(29, 46);
+            viewsLabel.Name = "viewsLabel";
+            viewsLabel.Size = new System.Drawing.Size(37, 13);
+            viewsLabel.TabIndex = 5;
+            viewsLabel.Text = "views:";
+            // 
+            // ratingLabel
+            // 
+            ratingLabel.AutoSize = true;
+            ratingLabel.Location = new System.Drawing.Point(29, 72);
+            ratingLabel.Name = "ratingLabel";
+            ratingLabel.Size = new System.Drawing.Size(36, 13);
+            ratingLabel.TabIndex = 7;
+            ratingLabel.Text = "rating:";
+            // 
+            // anime_idLabel
+            // 
+            anime_idLabel.AutoSize = true;
+            anime_idLabel.Location = new System.Drawing.Point(29, 98);
+            anime_idLabel.Name = "anime_idLabel";
+            anime_idLabel.Size = new System.Drawing.Size(49, 13);
+            anime_idLabel.TabIndex = 9;
+            anime_idLabel.Text = "anime id:";
+            // 
             // anime_notebook_dbDataSet
             // 
             this.anime_notebook_dbDataSet.DataSetName = "anime_notebook_dbDataSet";
@@ -77,24 +113,6 @@
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.User1TableAdapter = null;
             // 
-            // dateLabel
-            // 
-            dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(29, 20);
-            dateLabel.Name = "dateLabel";
-            dateLabel.Size = new System.Drawing.Size(31, 13);
-            dateLabel.TabIndex = 3;
-            dateLabel.Text = "date:";
-            // 
-            // viewsLabel
-            // 
-            viewsLabel.AutoSize = true;
-            viewsLabel.Location = new System.Drawing.Point(29, 46);
-            viewsLabel.Name = "viewsLabel";
-            viewsLabel.Size = new System.Drawing.Size(37, 13);
-            viewsLabel.TabIndex = 5;
-            viewsLabel.Text = "views:";
-            // 
             // viewsTextBox
             // 
             this.viewsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.releaseBindingSource, "views", true));
@@ -103,15 +121,6 @@
             this.viewsTextBox.Size = new System.Drawing.Size(200, 20);
             this.viewsTextBox.TabIndex = 6;
             // 
-            // ratingLabel
-            // 
-            ratingLabel.AutoSize = true;
-            ratingLabel.Location = new System.Drawing.Point(29, 72);
-            ratingLabel.Name = "ratingLabel";
-            ratingLabel.Size = new System.Drawing.Size(36, 13);
-            ratingLabel.TabIndex = 7;
-            ratingLabel.Text = "rating:";
-            // 
             // ratingTextBox
             // 
             this.ratingTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.releaseBindingSource, "rating", true));
@@ -119,15 +128,6 @@
             this.ratingTextBox.Name = "ratingTextBox";
             this.ratingTextBox.Size = new System.Drawing.Size(200, 20);
             this.ratingTextBox.TabIndex = 8;
-            // 
-            // anime_idLabel
-            // 
-            anime_idLabel.AutoSize = true;
-            anime_idLabel.Location = new System.Drawing.Point(29, 98);
-            anime_idLabel.Name = "anime_idLabel";
-            anime_idLabel.Size = new System.Drawing.Size(49, 13);
-            anime_idLabel.TabIndex = 9;
-            anime_idLabel.Text = "anime id:";
             // 
             // anime_idTextBox
             // 
@@ -139,22 +139,24 @@
             // 
             // button_ok
             // 
+            this.button_ok.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_ok.Location = new System.Drawing.Point(12, 121);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 11;
             this.button_ok.Text = "Ok";
-            this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.UseVisualStyleBackColor = false;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
+            this.button_cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_cancel.Location = new System.Drawing.Point(215, 121);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 12;
             this.button_cancel.Text = "Cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // dateTimePicker1
@@ -180,7 +182,7 @@
             this.Controls.Add(anime_idLabel);
             this.Controls.Add(this.anime_idTextBox);
             this.Name = "AddRelease";
-            this.Text = "AddRelease";
+            this.Text = "Release";
             this.Load += new System.EventHandler(this.AddRelease_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseBindingSource)).EndInit();

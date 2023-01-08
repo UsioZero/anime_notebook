@@ -482,41 +482,49 @@
             this.studioidDataGridViewTextBoxColumn1.DataPropertyName = "studio_id";
             this.studioidDataGridViewTextBoxColumn1.HeaderText = "studio_id";
             this.studioidDataGridViewTextBoxColumn1.Name = "studioidDataGridViewTextBoxColumn1";
+            this.studioidDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // experienceDataGridViewTextBoxColumn
             // 
             this.experienceDataGridViewTextBoxColumn.DataPropertyName = "experience";
             this.experienceDataGridViewTextBoxColumn.HeaderText = "experience";
             this.experienceDataGridViewTextBoxColumn.Name = "experienceDataGridViewTextBoxColumn";
+            this.experienceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // genderDataGridViewTextBoxColumn
             // 
             this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
             this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ageDataGridViewTextBoxColumn
             // 
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "age";
             this.ageDataGridViewTextBoxColumn.HeaderText = "age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // produceridDataGridViewTextBoxColumn
             // 
             this.produceridDataGridViewTextBoxColumn.DataPropertyName = "producer_id";
             this.produceridDataGridViewTextBoxColumn.HeaderText = "producer_id";
             this.produceridDataGridViewTextBoxColumn.Name = "produceridDataGridViewTextBoxColumn";
+            this.produceridDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.produceridDataGridViewTextBoxColumn,
@@ -529,6 +537,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(12, 111);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(732, 236);
             this.dataGridView2.TabIndex = 1;
@@ -590,6 +599,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(829, 391);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);

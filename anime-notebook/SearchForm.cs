@@ -48,6 +48,9 @@ namespace anime_notebook
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
+            studioTableAdapter.Update(anime_notebook_dbDataSet);
+            producerTableAdapter.Update(anime_notebook_dbDataSet);
+            animeTableAdapter.Update(anime_notebook_dbDataSet);
             // TODO: This line of code loads data into the 'anime_notebook_dbDataSet.Studio' table. You can move, or remove it, as needed.
             this.studioTableAdapter.Fill(this.anime_notebook_dbDataSet.Studio);
             // TODO: This line of code loads data into the 'anime_notebook_dbDataSet.Producer' table. You can move, or remove it, as needed.
@@ -59,6 +62,18 @@ namespace anime_notebook
             comboBox_Studio.SelectedItem = null;
             isProducerChanged = false;
             isStudioChanged = false;
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+
+            //exit button -border
+            search_button.TabStop = false;
+            search_button.FlatStyle = FlatStyle.Flat;
+            search_button.FlatAppearance.BorderSize = 0;
+            search_button.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
+            dateTimePicker_to.Value = DateTime.Now;
         }
 
         private void textBox_Name_TextChanged(object sender, EventArgs e)
@@ -154,6 +169,8 @@ namespace anime_notebook
             studio = "";
             annotation = "";
 
+
+
             while (true)
             {
                 if (select[select.Length - 1] == ' ')
@@ -166,6 +183,8 @@ namespace anime_notebook
                 }
                 else break;
             }
+
+            richTextBox1.Text = select;
 
             SqlConnection sqlcon = new SqlConnection(ConnectionString);
             sqlcon.Open();

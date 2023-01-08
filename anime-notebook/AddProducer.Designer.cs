@@ -164,22 +164,24 @@
             // 
             // button_ok
             // 
+            this.button_ok.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_ok.Location = new System.Drawing.Point(12, 214);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 13;
             this.button_ok.Text = "Ok";
-            this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.UseVisualStyleBackColor = false;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
+            this.button_cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_cancel.Location = new System.Drawing.Point(264, 214);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 14;
             this.button_cancel.Text = "Cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // studioTextBox
@@ -193,6 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(351, 249);
             this.Controls.Add(this.studioTextBox);
             this.Controls.Add(this.button_cancel);
@@ -207,7 +210,7 @@
             this.Controls.Add(this.experienceTextBox);
             this.Controls.Add(studio_idLabel);
             this.Name = "AddProducer";
-            this.Text = "AddProducer";
+            this.Text = "Producer";
             this.Load += new System.EventHandler(this.AddProducer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.producerBindingSource)).EndInit();

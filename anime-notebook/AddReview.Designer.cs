@@ -48,6 +48,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.reviewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // ratingLabel
+            // 
+            ratingLabel.AutoSize = true;
+            ratingLabel.Location = new System.Drawing.Point(12, 12);
+            ratingLabel.Name = "ratingLabel";
+            ratingLabel.Size = new System.Drawing.Size(36, 13);
+            ratingLabel.TabIndex = 3;
+            ratingLabel.Text = "rating:";
+            // 
+            // reviewer_idLabel
+            // 
+            reviewer_idLabel.AutoSize = true;
+            reviewer_idLabel.Location = new System.Drawing.Point(12, 38);
+            reviewer_idLabel.Name = "reviewer_idLabel";
+            reviewer_idLabel.Size = new System.Drawing.Size(61, 13);
+            reviewer_idLabel.TabIndex = 5;
+            reviewer_idLabel.Text = "reviewer id:";
+            // 
+            // release_idLabel
+            // 
+            release_idLabel.AutoSize = true;
+            release_idLabel.Location = new System.Drawing.Point(12, 64);
+            release_idLabel.Name = "release_idLabel";
+            release_idLabel.Size = new System.Drawing.Size(55, 13);
+            release_idLabel.TabIndex = 7;
+            release_idLabel.Text = "release id:";
+            // 
             // anime_notebook_dbDataSet
             // 
             this.anime_notebook_dbDataSet.DataSetName = "anime_notebook_dbDataSet";
@@ -74,15 +101,6 @@
             this.tableAdapterManager.UpdateOrder = anime_notebook.anime_notebook_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.User1TableAdapter = null;
             // 
-            // ratingLabel
-            // 
-            ratingLabel.AutoSize = true;
-            ratingLabel.Location = new System.Drawing.Point(12, 12);
-            ratingLabel.Name = "ratingLabel";
-            ratingLabel.Size = new System.Drawing.Size(36, 13);
-            ratingLabel.TabIndex = 3;
-            ratingLabel.Text = "rating:";
-            // 
             // ratingTextBox
             // 
             this.ratingTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.reviewBindingSource, "rating", true));
@@ -91,15 +109,6 @@
             this.ratingTextBox.Size = new System.Drawing.Size(100, 20);
             this.ratingTextBox.TabIndex = 4;
             // 
-            // reviewer_idLabel
-            // 
-            reviewer_idLabel.AutoSize = true;
-            reviewer_idLabel.Location = new System.Drawing.Point(12, 38);
-            reviewer_idLabel.Name = "reviewer_idLabel";
-            reviewer_idLabel.Size = new System.Drawing.Size(61, 13);
-            reviewer_idLabel.TabIndex = 5;
-            reviewer_idLabel.Text = "reviewer id:";
-            // 
             // reviewer_idTextBox
             // 
             this.reviewer_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.reviewBindingSource, "reviewer_id", true));
@@ -107,15 +116,6 @@
             this.reviewer_idTextBox.Name = "reviewer_idTextBox";
             this.reviewer_idTextBox.Size = new System.Drawing.Size(100, 20);
             this.reviewer_idTextBox.TabIndex = 6;
-            // 
-            // release_idLabel
-            // 
-            release_idLabel.AutoSize = true;
-            release_idLabel.Location = new System.Drawing.Point(12, 64);
-            release_idLabel.Name = "release_idLabel";
-            release_idLabel.Size = new System.Drawing.Size(55, 13);
-            release_idLabel.TabIndex = 7;
-            release_idLabel.Text = "release id:";
             // 
             // release_idTextBox
             // 
@@ -127,22 +127,24 @@
             // 
             // button_ok
             // 
+            this.button_ok.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_ok.Location = new System.Drawing.Point(12, 124);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 9;
             this.button_ok.Text = "Ok";
-            this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.UseVisualStyleBackColor = false;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
+            this.button_cancel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button_cancel.Location = new System.Drawing.Point(123, 124);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 10;
             this.button_cancel.Text = "Cancel";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // AddReview
@@ -159,7 +161,7 @@
             this.Controls.Add(release_idLabel);
             this.Controls.Add(this.release_idTextBox);
             this.Name = "AddReview";
-            this.Text = "AddReview";
+            this.Text = "Review";
             this.Load += new System.EventHandler(this.AddReview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anime_notebook_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewBindingSource)).EndInit();

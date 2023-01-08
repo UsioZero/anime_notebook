@@ -49,5 +49,30 @@ namespace anime_notebook
         {
             Close();
         }
+
+        private void QueryEdit_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+
+            //exit button -border
+            button1.TabStop = false;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
+            //exit button -border
+            button2.TabStop = false;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
+            //exit button -border
+            button3.TabStop = false;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+        }
     }
 }

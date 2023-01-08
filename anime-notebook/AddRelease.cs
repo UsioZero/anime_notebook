@@ -37,6 +37,21 @@ namespace anime_notebook
         {
             // TODO: This line of code loads data into the 'anime_notebook_dbDataSet.Release' table. You can move, or remove it, as needed.
             //this.releaseTableAdapter.Fill(this.anime_notebook_dbDataSet.Release);
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+
+            //exit button -border
+            button_ok.TabStop = false;
+            button_ok.FlatStyle = FlatStyle.Flat;
+            button_ok.FlatAppearance.BorderSize = 0;
+            button_ok.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
+            //exit button -border
+            button_cancel.TabStop = false;
+            button_cancel.FlatStyle = FlatStyle.Flat;
+            button_cancel.FlatAppearance.BorderSize = 0;
+            button_cancel.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
         }
 
         private void button_cancel_Click(object sender, EventArgs e)

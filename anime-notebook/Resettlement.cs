@@ -33,6 +33,16 @@ namespace anime_notebook
             // TODO: This line of code loads data into the 'anime_notebook_dbDataSet.Producer' table. You can move, or remove it, as needed.
             this.producerTableAdapter.Fill(this.anime_notebook_dbDataSet.Producer);
 
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
+
+            //exit button -border
+            button1.TabStop = false;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+
         }
 
         private void button1_Click(object sender, EventArgs e) 
@@ -44,8 +54,14 @@ namespace anime_notebook
                 == DialogResult.Yes) 
             { 
                 producerBindingSource.EndEdit();
-                producerTableAdapter.Update(anime_notebook_dbDataSet); 
-                animeTableAdapter.Update(anime_notebook_dbDataSet); 
+                producerTableAdapter.UpdateQuery(
+                    name: nameTextBox.Text,
+                    age: Convert.ToInt32(ageTextBox.Text),
+                    gender: genderTextBox.Text,
+                    experience: Convert.ToInt32(experienceTextBox.Text),
+                    studio_id: Convert.ToInt32(studio_idTextBox.Text),
+                    producer_id: Convert.ToInt32(producer_idTextBox.Text)
+                    );
             } 
         }
     }

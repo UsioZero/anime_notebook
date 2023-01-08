@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Application = System.Windows.Forms.Application;
 using MessageBox = System.Windows.MessageBox;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace anime_notebook
 {
@@ -57,6 +58,10 @@ namespace anime_notebook
                 comboBox1.Items.Add(dataGridView2.Columns[i].HeaderText.ToString());
             }
             comboBox1.SelectedItem = comboBox1.Items[0];
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - 200,
+                Screen.PrimaryScreen.WorkingArea.Height / 2 - 200);
         }
 
         public static DateTime ConvertFromUnixTimestamp(double timestamp)
@@ -126,11 +131,14 @@ namespace anime_notebook
 
         private void resettlemenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var rs = new Resettlement(); 
-            rs.ShowDialog();
-            studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
-            producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
-            animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
+            if (login == "admin")
+            {
+                var rs = new Resettlement();
+                rs.ShowDialog();
+                studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
+                producerTableAdapter.Fill(anime_notebook_dbDataSet.Producer);
+                animeTableAdapter.Fill(anime_notebook_dbDataSet.Anime);
+            }
         }
 
         private void queryEditToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,7 +149,13 @@ namespace anime_notebook
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(label1.Text == "Anime")
+            if(login == "admin")
+            AddElement();
+        }
+
+        private void AddElement()
+        {
+            if (label1.Text == "Anime")
             {
                 var edt = new EditForm();
                 edt.ShowDialog();
@@ -187,8 +201,12 @@ namespace anime_notebook
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
- 
+            if (login == "admin")
+                UpdateElement();
+        }
 
+        private void UpdateElement()
+        {
             if (label1.Text == "Anime")
             {
                 var an = new anime_notebook_dbDataSet.AnimeDataTable();
@@ -309,6 +327,13 @@ namespace anime_notebook
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (login == "admin")
+                DeleteElement();
+
+        }
+
+        private void DeleteElement()
+        {
             if (label1.Text == "Anime")
             {
                 animeTableAdapter.DeleteQuery(
@@ -357,7 +382,6 @@ namespace anime_notebook
                 studioTableAdapter.Fill(anime_notebook_dbDataSet.Studio);
                 anime_notebook_dbDataSet.AcceptChanges();
             }
-
         }
 
         private void releaseToolStripMenuItem_Click(object sender, EventArgs e)
